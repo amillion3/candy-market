@@ -6,7 +6,7 @@ namespace candy_market
     {
         public string Name { get; set; }
         public string Manufacturer { get; set; }
-        public string flavorCategory { get; set; }
-        public DateTime dateReceived { get; set; }
+        public string FlavorCategory { get; set; }
+        public DateTime DateReceived { get; set; }
     }
 }
