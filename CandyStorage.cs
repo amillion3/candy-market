@@ -7,6 +7,12 @@ namespace candy_market
     {
         static List<Candy> _candies = new List<Candy>(); 
 
+        // name
+        // manuf
+        // flavor
+        // date
+        // type
+
         internal IList<string> GetCandyTypes()
         {
             IList<string> CandyTypes = new List<string>()
