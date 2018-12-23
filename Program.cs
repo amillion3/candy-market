@@ -8,6 +8,25 @@ namespace candy_market
         {
             var db = SetupNewApp();
             var userInput = MainMenu(db);
+            HandleInput(userInput);
+        }
+
+        internal static void HandleInput(ConsoleKeyInfo userInput)
+        {
+            var inputNumber = userInput.KeyChar;
+            CandyStorage emptyCandyStorage = new CandyStorage();
+
+            if (inputNumber == 49)
+            {
+                AddNewCandy(emptyCandyStorage);
+            }
+            else if (inputNumber == 50)
+            {
+                EatSomeCandy();
+            } else
+            {
+                Environment.Exit(0);
+            }
         }
 
         internal static CandyStorage SetupNewApp()
@@ -42,6 +61,11 @@ namespace candy_market
 
             var selectedCandyType = Console.ReadKey();
             db.SaveNewCandy(selectedCandyType.Key);
+        }
+
+        internal static void EatSomeCandy()
+        {
+
         }
     }
 }
