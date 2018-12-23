@@ -9,7 +9,14 @@ namespace candy_market
 
         internal IList<string> GetCandyTypes()
         {
-            throw new NotImplementedException();
+            IList<string> CandyTypes = new List<string>()
+            {
+                "Hard Candy",
+                "Taffy",
+                "Jelly Bean",
+                "Chocolate"
+            };
+            return CandyTypes;
         }
 
         internal void SaveNewCandy(ConsoleKey key)

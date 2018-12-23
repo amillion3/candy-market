@@ -65,7 +65,7 @@ namespace candy_market
 
         internal static void EatSomeCandy()
         {
-
+            // Will get candy list
         }
     }
 }
