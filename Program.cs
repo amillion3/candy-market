@@ -53,14 +53,52 @@ namespace candy_market
 
         internal static void AddNewCandy(CandyStorage db)
         {
+            //  Candy Types  //
             var candyTypes = db.GetCandyTypes();
-            var newCandyMenu = new View()
+            var newCandyMenuTypes = new View()
                 .AddMenuText("What type of candy did you get?")
                 .AddMenuOptions(candyTypes);
-            Console.Write(newCandyMenu.GetFullMenu());
+            Console.Write(newCandyMenuTypes.GetFullMenu());
 
             var selectedCandyType = Console.ReadKey();
             db.SaveNewCandy(selectedCandyType.Key);
+
+            //  Candy Names //
+            var candyNames = db.GetCandyNames();
+            var newCandyMenuNames = new View()
+                .AddMenuText("What is the name of the candy?")
+                .AddMenuOptions(candyNames);
+            Console.Write(newCandyMenuNames.GetFullMenu());
+
+            var selectedCandyName = Console.ReadKey();
+            db.SaveNewCandy(selectedCandyType.Key);
+
+            //  Candy Manufacturers  //
+            var candyManufacturers = db.GetCandyManufacturers();
+            var newCandyMenuManufacturers = new View()
+                .AddMenuText("Who made the candy?")
+                .AddMenuOptions(candyManufacturers);
+            Console.Write(newCandyMenuManufacturers.GetFullMenu());
+
+            var selectedCandyManufacturer = Console.ReadKey();
+            db.SaveNewCandy(selectedCandyType.Key);
+
+            //  Candy Flavors  //
+            var candyFlavors = db.GetFlavorCategories();
+            var newCandyMenuFlavor = new View()
+                .AddMenuText("Who flavor is the candy?")
+                .AddMenuOptions(candyFlavors);
+            Console.Write(newCandyMenuFlavor.GetFullMenu());
+
+            var selectedCandyFlavor = Console.ReadKey();
+            db.SaveNewCandy(selectedCandyType.Key);
+
+            //  Candy Acquired Date  //
+            var newCandyMenuDateAcquired = new View()
+                .AddMenuText("When did you acquire the candy? MM/DD/YYYY");
+            Console.Write(newCandyMenuDateAcquired.GetFullMenu());
+            var dateOfAcquisition = Console.ReadLine();
+            db.SaveCandyAcquisitionDate(dateOfAcquisition);
         }
 
         internal static void EatSomeCandy()

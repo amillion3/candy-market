@@ -10,6 +10,4 @@ namespace candy_market
         public string FlavorCategory { get; set; }
         public DateTime DateReceived { get; set; }
     }
-
-    // Need an I/List candy enum ...?
 }
