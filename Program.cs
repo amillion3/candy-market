@@ -61,7 +61,7 @@ namespace candy_market
             Console.Write(newCandyMenuTypes.GetFullMenu());
 
             var selectedCandyType = Console.ReadKey();
-            db.SaveNewCandy(selectedCandyType.Key);
+            db.SaveNewCandy(selectedCandyType.Key, "CandyType");
 
             //  Candy Names //
             var candyNames = db.GetCandyNames();
@@ -71,7 +71,7 @@ namespace candy_market
             Console.Write(newCandyMenuNames.GetFullMenu());
 
             var selectedCandyName = Console.ReadKey();
-            db.SaveNewCandy(selectedCandyType.Key);
+            db.SaveNewCandy(selectedCandyType.Key, "CandyName");
 
             //  Candy Manufacturers  //
             var candyManufacturers = db.GetCandyManufacturers();
@@ -81,7 +81,7 @@ namespace candy_market
             Console.Write(newCandyMenuManufacturers.GetFullMenu());
 
             var selectedCandyManufacturer = Console.ReadKey();
-            db.SaveNewCandy(selectedCandyType.Key);
+            db.SaveNewCandy(selectedCandyType.Key, "CandyManuf");
 
             //  Candy Flavors  //
             var candyFlavors = db.GetFlavorCategories();
@@ -91,7 +91,7 @@ namespace candy_market
             Console.Write(newCandyMenuFlavor.GetFullMenu());
 
             var selectedCandyFlavor = Console.ReadKey();
-            db.SaveNewCandy(selectedCandyType.Key);
+            db.SaveNewCandy(selectedCandyType.Key, "CandyFlavor");
 
             //  Candy Acquired Date  //
             var newCandyMenuDateAcquired = new View()
