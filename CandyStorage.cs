@@ -10,7 +10,7 @@ namespace candy_market
         string tempCandyType = "";
         string tempManufacturer = "";
         string tempFlavorCategory = "";
-        DateTime _tempDateReceived = new DateTime();
+        DateTime tempDateReceived = new DateTime();
 
         internal IList<string> GetCandyTypes()
         {
@@ -97,86 +97,98 @@ namespace candy_market
             {
                 switch (keyAsInt) 
                 {
-                    case 1:
+                    case 97:
                         SetCandyType("Hard Candy");
                         break;
-                    case 2:
+                    case 98:
                         SetCandyType("Taffy");
                         break;
-                    case 3:
+                    case 99:
                         SetCandyType("Jelly Bean");
                         break;
-                    case 4:
+                    case 100:
                         SetCandyType("Chocolate");
+                        break;
+                    default:
+                        SetCandyNames("ERROR");
                         break;
                 }
             } else if (requestType == "CandyName")
             {
                 switch (keyAsInt)
                 {
-                    case 1:
+                    case 97:
                         SetCandyNames("Sour/Sweet");
                         break;
-                    case 2:
+                    case 98:
                         SetCandyNames("Caramel Flavored");
                         break;
-                    case 3:
+                    case 99:
                         SetCandyNames("Saltwater");
                         break;
-                    case 4:
+                    case 100:
                         SetCandyNames("Flavored");
                         break;
-                    case 5:
+                    case 101:
                         SetCandyNames("Choclate Bars");
                         break;
-                    case 6:
+                    case 102:
                         SetCandyNames("Truffles");
+                        break;
+                    default:
+                        SetCandyNames("ERROR");
                         break;
                 }
             } else if (requestType == "CandyManuf")
             {
                 switch (keyAsInt)
                 {
-                    case 1:
+                    case 97:
                         SetCandyManufacturer("Jolly Ranchers");
                         break;
-                    case 2:
+                    case 98:
                         SetCandyManufacturer("Werther's");
                         break;
-                    case 3:
+                    case 99:
                         SetCandyManufacturer("Laffy Taffy");
                         break;
-                    case 4:
+                    case 100:
                         SetCandyManufacturer("Starburst");
                         break;
-                    case 5:
+                    case 101:
                         SetCandyManufacturer("Giradelli");
                         break;
-                    case 6:
+                    case 102:
                         SetCandyManufacturer("Lindt");
+                        break;
+                    default:
+                        SetCandyNames("ERROR");
                         break;
                 }
             } else if (requestType == "CandyFlavor")
             {
                 switch (keyAsInt)
                 {
-                    case 1:
+                    case 97:
                         SetCandyFlavorCategory("Sour");
                         break;
-                    case 2:
+                    case 98:
                         SetCandyFlavorCategory("Sweet");
                         break;
-                    case 3:
+                    case 99:
                         SetCandyFlavorCategory("Rich");
                         break;
-                    case 4:
+                    case 100:
                         SetCandyFlavorCategory("Nutty");
                         break;
-                    case 5:
+                    case 101:
                         SetCandyFlavorCategory("Fruity");
                         break;
-                    case 6:
+                    case 102:
                         SetCandyFlavorCategory("Hot");
+                        break;
+                    default:
+                        SetCandyNames("ERROR");
                         break;
                 }
             };
@@ -184,7 +196,7 @@ namespace candy_market
 
         internal void SaveCandyAcquisitionDate(string savedDate)
         {
-            throw new NotImplementedException();
+            tempDateReceived = DateTime.Parse(savedDate);
         }
     }
 }
