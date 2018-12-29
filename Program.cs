@@ -7,9 +7,13 @@ namespace candy_market
         static void Main(string[] args)
         {
             var db = SetupNewApp();
-            var userInput = MainMenu(db);
-
-            HandleInput(userInput);
+            // this do/while loop keeps the program running until the user enters
+            //    '0' at the Main Menu screen (to exit the console app)
+            do {
+                var userInput = MainMenu(db);
+                HandleInput(userInput);
+            }
+            while (1 == 1);
         }
 
         internal static void HandleInput(char userInputABC)
@@ -101,10 +105,6 @@ namespace candy_market
             var dateOfAcquisition = Console.ReadLine();
             db.SetCandyAcquisitionDate(dateOfAcquisition);
             db.PersistNewCandyObject();
-            // Trying to restart the console app here, at least return to
-            // the main menu and start again. I'll have to check later if
-            // the candy is accumulated each time, or overwritten each time
-            MainMenu(db);
         }
 
         internal static void EatSomeCandy()

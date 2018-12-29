@@ -194,7 +194,7 @@ namespace candy_market
                 }
             };
         }
-
+        
         internal void PersistNewCandyObject()
         {
             _candies.Add(new Candy() {
@@ -204,6 +204,11 @@ namespace candy_market
                 FlavorCategory = tempFlavorCategory,
                 DateReceived = tempDateReceived,
             });
+        }
+
+        public List<Candy> ReturnCandyInventory()
+        {
+            return _candies;
         }
     }
 }
