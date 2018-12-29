@@ -26,7 +26,6 @@ namespace candy_market
 
         internal void SetCandyType(string candyType)
         {
-            //_candies.Add(new Candy() { CandyType = candyType });
             tempCandyType = candyType;
         }
 
@@ -46,7 +45,6 @@ namespace candy_market
 
         internal void SetCandyNames(string candyName)
         {
-            //_candies.Add(new Candy() { CandyType = candyType });
             tempCandyName = candyName;
         }
 
@@ -66,7 +64,6 @@ namespace candy_market
 
         internal void SetCandyManufacturer(string candyManuf)
         {
-            //_candies.Add(new Candy() { CandyType = candyType });
             tempManufacturer = candyManuf;
         }
 
@@ -86,7 +83,6 @@ namespace candy_market
 
         internal void SetCandyFlavorCategory(string candyFlavorCategory)
         {
-            //_candies.Add(new Candy() { CandyType = candyType });
             tempFlavorCategory = candyFlavorCategory;
         }
 

@@ -8,12 +8,13 @@ namespace candy_market
         {
             var db = SetupNewApp();
             var userInput = MainMenu(db);
+
             HandleInput(userInput);
         }
 
-        internal static void HandleInput(ConsoleKeyInfo userInput)
+        internal static void HandleInput(char userInputABC)
         {
-            var inputNumber = userInput.KeyChar;
+            var inputNumber = userInputABC;
             CandyStorage emptyCandyStorage = new CandyStorage();
 
             if (inputNumber == 49)
@@ -40,14 +41,14 @@ namespace candy_market
             return db;
         }
 
-        internal static ConsoleKeyInfo MainMenu(CandyStorage db)
+        internal static char MainMenu(CandyStorage db)
         {
             View mainMenu = new View()
                 .AddMenuOption("Did you just get some new candy? Add it here.")
                 .AddMenuOption("Do you want to eat some candy? Take it here.")
                 .AddMenuText("Press 0 to exit.");
             Console.Write(mainMenu.GetFullMenu());
-            var userOption = Console.ReadKey();
+            var userOption = Console.ReadKey().KeyChar;
             return userOption;
         }
 
@@ -100,7 +101,10 @@ namespace candy_market
             var dateOfAcquisition = Console.ReadLine();
             db.SetCandyAcquisitionDate(dateOfAcquisition);
             db.PersistNewCandyObject();
-
+            // Trying to restart the console app here, at least return to
+            // the main menu and start again. I'll have to check later if
+            // the candy is accumulated each time, or overwritten each time
+            MainMenu(db);
         }
 
         internal static void EatSomeCandy()
