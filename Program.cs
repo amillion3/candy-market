@@ -98,7 +98,8 @@ namespace candy_market
                 .AddMenuText("When did you acquire the candy? MM/DD/YYYY");
             Console.Write(newCandyMenuDateAcquired.GetFullMenu());
             var dateOfAcquisition = Console.ReadLine();
-            db.SaveCandyAcquisitionDate(dateOfAcquisition);
+            db.SetCandyAcquisitionDate(dateOfAcquisition);
+            db.PersistNewCandyObject();
 
         }
 

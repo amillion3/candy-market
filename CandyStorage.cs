@@ -90,6 +90,11 @@ namespace candy_market
             tempFlavorCategory = candyFlavorCategory;
         }
 
+        internal void SetCandyAcquisitionDate(string savedDate)
+        {
+            tempDateReceived = DateTime.Parse(savedDate);
+        }
+
         internal void SaveNewCandy(ConsoleKey key, string requestType)
         {
             int keyAsInt = (int)key;
@@ -194,9 +199,15 @@ namespace candy_market
             };
         }
 
-        internal void SaveCandyAcquisitionDate(string savedDate)
+        internal void PersistNewCandyObject()
         {
-            tempDateReceived = DateTime.Parse(savedDate);
+            _candies.Add(new Candy() {
+                Name = tempCandyName,
+                CandyType = tempCandyType,
+                Manufacturer = tempManufacturer,
+                FlavorCategory = tempFlavorCategory,
+                DateReceived = tempDateReceived,
+            });
         }
     }
 }
