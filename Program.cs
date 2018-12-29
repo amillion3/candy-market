@@ -8,6 +8,25 @@ namespace candy_market
         {
             var db = SetupNewApp();
             var userInput = MainMenu(db);
+            HandleInput(userInput);
+        }
+
+        internal static void HandleInput(ConsoleKeyInfo userInput)
+        {
+            var inputNumber = userInput.KeyChar;
+            CandyStorage emptyCandyStorage = new CandyStorage();
+
+            if (inputNumber == 49)
+            {
+                AddNewCandy(emptyCandyStorage);
+            }
+            else if (inputNumber == 50)
+            {
+                EatSomeCandy();
+            } else
+            {
+                Environment.Exit(0);
+            }
         }
 
         internal static CandyStorage SetupNewApp()
@@ -34,14 +53,58 @@ namespace candy_market
 
         internal static void AddNewCandy(CandyStorage db)
         {
+            //  Candy Types  //
             var candyTypes = db.GetCandyTypes();
-            var newCandyMenu = new View()
+            var newCandyMenuTypes = new View()
                 .AddMenuText("What type of candy did you get?")
                 .AddMenuOptions(candyTypes);
-            Console.Write(newCandyMenu.GetFullMenu());
+            Console.Write(newCandyMenuTypes.GetFullMenu());
 
             var selectedCandyType = Console.ReadKey();
-            db.SaveNewCandy(selectedCandyType.Key);
+            db.SaveNewCandy(selectedCandyType.Key, "CandyType");
+
+            //  Candy Names //
+            var candyNames = db.GetCandyNames();
+            var newCandyMenuNames = new View()
+                .AddMenuText("What is the name of the candy?")
+                .AddMenuOptions(candyNames);
+            Console.Write(newCandyMenuNames.GetFullMenu());
+
+            var selectedCandyName = Console.ReadKey();
+            db.SaveNewCandy(selectedCandyName.Key, "CandyName");
+
+            //  Candy Manufacturers  //
+            var candyManufacturers = db.GetCandyManufacturers();
+            var newCandyMenuManufacturers = new View()
+                .AddMenuText("Who made the candy?")
+                .AddMenuOptions(candyManufacturers);
+            Console.Write(newCandyMenuManufacturers.GetFullMenu());
+
+            var selectedCandyManufacturer = Console.ReadKey();
+            db.SaveNewCandy(selectedCandyManufacturer.Key, "CandyManuf");
+
+            //  Candy Flavors  //
+            var candyFlavors = db.GetFlavorCategories();
+            var newCandyMenuFlavor = new View()
+                .AddMenuText("Who flavor is the candy?")
+                .AddMenuOptions(candyFlavors);
+            Console.Write(newCandyMenuFlavor.GetFullMenu());
+
+            var selectedCandyFlavor = Console.ReadKey();
+            db.SaveNewCandy(selectedCandyFlavor.Key, "CandyFlavor");
+
+            //  Candy Acquired Date  //
+            var newCandyMenuDateAcquired = new View()
+                .AddMenuText("When did you acquire the candy? MM/DD/YYYY");
+            Console.Write(newCandyMenuDateAcquired.GetFullMenu());
+            var dateOfAcquisition = Console.ReadLine();
+            db.SaveCandyAcquisitionDate(dateOfAcquisition);
+
+        }
+
+        internal static void EatSomeCandy()
+        {
+            // Will get candy list
         }
     }
 }
