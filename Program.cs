@@ -7,13 +7,18 @@ namespace candy_market
         static void Main(string[] args)
         {
             var db = SetupNewApp();
-            var userInput = MainMenu(db);
-            HandleInput(userInput);
+            // this do/while loop keeps the program running until the user enters
+            //    '0' at the Main Menu screen (to exit the console app)
+            do {
+                var userInput = MainMenu(db);
+                HandleInput(userInput);
+            }
+            while (1 == 1);
         }
 
-        internal static void HandleInput(ConsoleKeyInfo userInput)
+        internal static void HandleInput(char userInputABC)
         {
-            var inputNumber = userInput.KeyChar;
+            var inputNumber = userInputABC;
             CandyStorage emptyCandyStorage = new CandyStorage();
 
             if (inputNumber == 49)
@@ -40,14 +45,14 @@ namespace candy_market
             return db;
         }
 
-        internal static ConsoleKeyInfo MainMenu(CandyStorage db)
+        internal static char MainMenu(CandyStorage db)
         {
             View mainMenu = new View()
                 .AddMenuOption("Did you just get some new candy? Add it here.")
                 .AddMenuOption("Do you want to eat some candy? Take it here.")
                 .AddMenuText("Press 0 to exit.");
             Console.Write(mainMenu.GetFullMenu());
-            var userOption = Console.ReadKey();
+            var userOption = Console.ReadKey().KeyChar;
             return userOption;
         }
 
@@ -98,8 +103,8 @@ namespace candy_market
                 .AddMenuText("When did you acquire the candy? MM/DD/YYYY");
             Console.Write(newCandyMenuDateAcquired.GetFullMenu());
             var dateOfAcquisition = Console.ReadLine();
-            db.SaveCandyAcquisitionDate(dateOfAcquisition);
-
+            db.SetCandyAcquisitionDate(dateOfAcquisition);
+            db.PersistNewCandyObject();
         }
 
         internal static void EatSomeCandy()

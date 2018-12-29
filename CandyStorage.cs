@@ -26,7 +26,6 @@ namespace candy_market
 
         internal void SetCandyType(string candyType)
         {
-            //_candies.Add(new Candy() { CandyType = candyType });
             tempCandyType = candyType;
         }
 
@@ -46,7 +45,6 @@ namespace candy_market
 
         internal void SetCandyNames(string candyName)
         {
-            //_candies.Add(new Candy() { CandyType = candyType });
             tempCandyName = candyName;
         }
 
@@ -66,7 +64,6 @@ namespace candy_market
 
         internal void SetCandyManufacturer(string candyManuf)
         {
-            //_candies.Add(new Candy() { CandyType = candyType });
             tempManufacturer = candyManuf;
         }
 
@@ -86,8 +83,12 @@ namespace candy_market
 
         internal void SetCandyFlavorCategory(string candyFlavorCategory)
         {
-            //_candies.Add(new Candy() { CandyType = candyType });
             tempFlavorCategory = candyFlavorCategory;
+        }
+
+        internal void SetCandyAcquisitionDate(string savedDate)
+        {
+            tempDateReceived = DateTime.Parse(savedDate);
         }
 
         internal void SaveNewCandy(ConsoleKey key, string requestType)
@@ -193,10 +194,21 @@ namespace candy_market
                 }
             };
         }
-
-        internal void SaveCandyAcquisitionDate(string savedDate)
+        
+        internal void PersistNewCandyObject()
         {
-            tempDateReceived = DateTime.Parse(savedDate);
+            _candies.Add(new Candy() {
+                Name = tempCandyName,
+                CandyType = tempCandyType,
+                Manufacturer = tempManufacturer,
+                FlavorCategory = tempFlavorCategory,
+                DateReceived = tempDateReceived,
+            });
+        }
+
+        public List<Candy> ReturnCandyInventory()
+        {
+            return _candies;
         }
     }
 }
