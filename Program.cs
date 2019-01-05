@@ -91,7 +91,7 @@ namespace candy_market
             //  Candy Flavors  //
             var candyFlavors = db.GetFlavorCategories();
             var newCandyMenuFlavor = new View()
-                .AddMenuText("Who flavor is the candy?")
+                .AddMenuText("What flavor is the candy?")
                 .AddMenuOptions(candyFlavors);
             Console.Write(newCandyMenuFlavor.GetFullMenu());
 
@@ -109,7 +109,32 @@ namespace candy_market
 
         internal static void EatSomeCandy()
         {
-            // Will get candy list
+            var db = new CandyStorage();
+            var currentCandyInventory = db.ReturnCandyInventory();
+            if (currentCandyInventory.Count < 1)
+            {
+                var eatCandy = new View()
+                    .AddMenuText("You have no candy");
+                Console.Write(eatCandy.GetFullMenu());
+                Console.ReadKey();
+            } else
+            {
+                var viewCandy = new View()
+                    .AddMenuText("Here is your candy inventory:");
+                Console.Write(viewCandy.GetFullMenu());
+                for (int i = 0; i < currentCandyInventory.Count; i++)
+                {
+                    Console.WriteLine("");
+                    Console.WriteLine("         Candy Name: " + currentCandyInventory[i].Name);
+                    Console.WriteLine("         Candy Type: " + currentCandyInventory[i].CandyType);
+                    Console.WriteLine(" Candy Manufacturer: " + currentCandyInventory[i].Manufacturer);
+                    Console.WriteLine("       Candy Flavor: " + currentCandyInventory[i].FlavorCategory);
+                    Console.WriteLine("Candy Date Received: " + currentCandyInventory[i].DateReceived);
+                }
+                Console.WriteLine("");
+                Console.WriteLine("Press any key to continue");
+                Console.ReadKey();
+            }
         }
     }
 }
