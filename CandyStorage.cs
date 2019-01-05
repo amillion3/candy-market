@@ -93,21 +93,22 @@ namespace candy_market
 
         internal void SaveNewCandy(ConsoleKey key, string requestType)
         {
-            int keyAsInt = (int)key;
+            var keyValue = key.ToString();
+            Console.WriteLine(key.ToString());
             if (requestType == "CandyType")
             {
-                switch (keyAsInt) 
+                switch (keyValue) 
                 {
-                    case 97:
+                    case "D1":
                         SetCandyType("Hard Candy");
                         break;
-                    case 98:
+                    case "D2":
                         SetCandyType("Taffy");
                         break;
-                    case 99:
+                    case "D3":
                         SetCandyType("Jelly Bean");
                         break;
-                    case 100:
+                    case "D4":
                         SetCandyType("Chocolate");
                         break;
                     default:
@@ -116,24 +117,24 @@ namespace candy_market
                 }
             } else if (requestType == "CandyName")
             {
-                switch (keyAsInt)
+                switch (keyValue)
                 {
-                    case 97:
+                    case "D1":
                         SetCandyNames("Sour/Sweet");
                         break;
-                    case 98:
+                    case "D2":
                         SetCandyNames("Caramel Flavored");
                         break;
-                    case 99:
+                    case "D3":
                         SetCandyNames("Saltwater");
                         break;
-                    case 100:
+                    case "D4":
                         SetCandyNames("Flavored");
                         break;
-                    case 101:
+                    case "D5":
                         SetCandyNames("Choclate Bars");
                         break;
-                    case 102:
+                    case "D6":
                         SetCandyNames("Truffles");
                         break;
                     default:
@@ -142,24 +143,24 @@ namespace candy_market
                 }
             } else if (requestType == "CandyManuf")
             {
-                switch (keyAsInt)
+                switch (keyValue)
                 {
-                    case 97:
+                    case "D1":
                         SetCandyManufacturer("Jolly Ranchers");
                         break;
-                    case 98:
+                    case "D2":
                         SetCandyManufacturer("Werther's");
                         break;
-                    case 99:
+                    case "D3":
                         SetCandyManufacturer("Laffy Taffy");
                         break;
-                    case 100:
+                    case "D4":
                         SetCandyManufacturer("Starburst");
                         break;
-                    case 101:
+                    case "D5":
                         SetCandyManufacturer("Giradelli");
                         break;
-                    case 102:
+                    case "D6":
                         SetCandyManufacturer("Lindt");
                         break;
                     default:
@@ -168,24 +169,24 @@ namespace candy_market
                 }
             } else if (requestType == "CandyFlavor")
             {
-                switch (keyAsInt)
+                switch (keyValue)
                 {
-                    case 97:
+                    case "D1":
                         SetCandyFlavorCategory("Sour");
                         break;
-                    case 98:
+                    case "D2":
                         SetCandyFlavorCategory("Sweet");
                         break;
-                    case 99:
+                    case "D3":
                         SetCandyFlavorCategory("Rich");
                         break;
-                    case 100:
+                    case "D4":
                         SetCandyFlavorCategory("Nutty");
                         break;
-                    case 101:
+                    case "D5":
                         SetCandyFlavorCategory("Fruity");
                         break;
-                    case 102:
+                    case "D6":
                         SetCandyFlavorCategory("Hot");
                         break;
                     default:
